@@ -1,0 +1,81 @@
+[
+  {
+    "index": "1",
+    "name": "Bulbasaur",
+    "exp": 64,
+    "hp": 45,
+    "attack": 49,
+    "defense": 49,
+    "sp_attack": 0,
+    "sp_defense": 0,
+    "speed": 45,
+    "total_evs": 188,
+    "type": [
+      "grass",
+      "poison"
+    ],
+    "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+    "height": "0.7 m",
+    "weight": "6.9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png"
+  },
+  {
+    "index": "2",
+    "name": "Ivysaur",
+    "exp": 142,
+    "hp": 60,
+    "attack": 62,
+    "defense": 63,
+    "sp_attack": 0,
+    "sp_defense": 0,
+    "speed": 60,
+    "total_evs": 245,
+    "type": [
+      "grass",
+      "poison"
+    ],
+    "description": "When the bud on its back starts swelling, a sweet aroma wafts to indicate the flowers coming bloom.",
+    "height": "1 m",
+    "weight": "13 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/8/81/0002Ivysaur.png/70px-0002Ivysaur.png"
+  },
+  {
+    "index": "3",
+    "name": "Venusaur",
+    "exp": 263,
+    "hp": 80,
+    "attack": 82,
+    "defense": 83,
+    "sp_attack": 0,
+    "sp_defense": 0,
+    "speed": 80,
+    "total_evs": 325,
+    "type": [
+      "grass",
+      "poison"
+    ],
+    "description": "After a rainy day, the flower on its back smells stronger. The scent attracts other Pokémon.",
+    "height": "2 m",
+    "weight": "100 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/6/6b/0003Venusaur.png/70px-0003Venusaur.png"
+  },
+  {
+    "index": "4",
+    "name": "Charmander",
+    "exp": 62,
+    "hp": 39,
+    "attack": 52,
+    "defense": 43,
+    "sp_attack": 0,
+    "sp_defense": 0,
+    "speed": 65,
+    "total_evs": 199,
+    "type": [
+      "fire"
+    ],
+    "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+    "height": "0.6 m",
+    "weight": "8.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png"
+  }
+]
