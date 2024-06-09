@@ -1,0 +1,759 @@
+[
+  {
+    "index": "1",
+    "name": "Bulbasaur",
+    "exp": 64,
+    "hp": 45,
+    "attack": 49,
+    "defense": 49,
+    "sp_attack": 65,
+    "sp_defense": 65,
+    "speed": 45,
+    "total_evs": 318,
+    "type": [
+      "grass",
+      "poison"
+    ],
+    "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+    "height": "0.7 m",
+    "weight": "6.9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png"
+  },
+  {
+    "index": "2",
+    "name": "Ivysaur",
+    "exp": 142,
+    "hp": 60,
+    "attack": 62,
+    "defense": 63,
+    "sp_attack": 80,
+    "sp_defense": 80,
+    "speed": 60,
+    "total_evs": 405,
+    "type": [
+      "grass",
+      "poison"
+    ],
+    "description": "When the bud on its back starts swelling, a sweet aroma wafts to indicate the flowers coming bloom.",
+    "height": "1 m",
+    "weight": "13 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/8/81/0002Ivysaur.png/70px-0002Ivysaur.png"
+  },
+  {
+    "index": "3",
+    "name": "Venusaur",
+    "exp": 263,
+    "hp": 80,
+    "attack": 82,
+    "defense": 83,
+    "sp_attack": 100,
+    "sp_defense": 100,
+    "speed": 80,
+    "total_evs": 525,
+    "type": [
+      "grass",
+      "poison"
+    ],
+    "description": "After a rainy day, the flower on its back smells stronger. The scent attracts other Pokémon.",
+    "height": "2 m",
+    "weight": "100 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/6/6b/0003Venusaur.png/70px-0003Venusaur.png"
+  },
+  {
+    "index": "4",
+    "name": "Charmander",
+    "exp": 62,
+    "hp": 39,
+    "attack": 52,
+    "defense": 43,
+    "sp_attack": 60,
+    "sp_defense": 50,
+    "speed": 65,
+    "total_evs": 309,
+    "type": [
+      "fire"
+    ],
+    "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+    "height": "0.6 m",
+    "weight": "8.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png"
+  },
+  {
+    "index": "5",
+    "name": "Charmeleon",
+    "exp": 142,
+    "hp": 58,
+    "attack": 64,
+    "defense": 58,
+    "sp_attack": 80,
+    "sp_defense": 65,
+    "speed": 80,
+    "total_evs": 405,
+    "type": [
+      "fire"
+    ],
+    "description": "In the rocky mountains where Charmeleon live, their fiery tails shine at night like stars.",
+    "height": "1.1 m",
+    "weight": "19 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/0/05/0005Charmeleon.png/70px-0005Charmeleon.png"
+  },
+  {
+    "index": "6",
+    "name": "Charizard",
+    "exp": 267,
+    "hp": 78,
+    "attack": 84,
+    "defense": 78,
+    "sp_attack": 109,
+    "sp_defense": 85,
+    "speed": 100,
+    "total_evs": 534,
+    "type": [
+      "fire",
+      "flying"
+    ],
+    "description": "It is said that Charizards fire burns hotter if it has experienced harsh battles.",
+    "height": "1.7 m",
+    "weight": "90.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/3/38/0006Charizard.png/70px-0006Charizard.png"
+  },
+  {
+    "index": "7",
+    "name": "Squirtle",
+    "exp": 63,
+    "hp": 44,
+    "attack": 48,
+    "defense": 65,
+    "sp_attack": 50,
+    "sp_defense": 64,
+    "speed": 43,
+    "total_evs": 314,
+    "type": [
+      "water"
+    ],
+    "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+    "height": "0.5 m",
+    "weight": "9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png"
+  },
+  {
+    "index": "8",
+    "name": "Wartortle",
+    "exp": 142,
+    "hp": 59,
+    "attack": 63,
+    "defense": 80,
+    "sp_attack": 65,
+    "sp_defense": 80,
+    "speed": 58,
+    "total_evs": 405,
+    "type": [
+      "water"
+    ],
+    "description": "It is said to live 10,000 years. Its furry tail is popular as a symbol of longevity.",
+    "height": "1 m",
+    "weight": "22.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/0/0f/0008Wartortle.png/70px-0008Wartortle.png"
+  },
+  {
+    "index": "9",
+    "name": "Blastoise",
+    "exp": 265,
+    "hp": 79,
+    "attack": 83,
+    "defense": 100,
+    "sp_attack": 85,
+    "sp_defense": 105,
+    "speed": 78,
+    "total_evs": 530,
+    "type": [
+      "water"
+    ],
+    "description": "The jets of water it spouts from the rocket cannons on its shell can punch through thick steel.",
+    "height": "1.6 m",
+    "weight": "85.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/0/0a/0009Blastoise.png/70px-0009Blastoise.png"
+  },
+  {
+    "index": "10",
+    "name": "Caterpie",
+    "exp": 39,
+    "hp": 45,
+    "attack": 30,
+    "defense": 35,
+    "sp_attack": 20,
+    "sp_defense": 20,
+    "speed": 45,
+    "total_evs": 195,
+    "type": [
+      "bug"
+    ],
+    "description": "It releases a stench from its red antenna to repel enemies. It grows by molting repeatedly.",
+    "height": "0.3 m",
+    "weight": "2.9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/5e/0010Caterpie.png/70px-0010Caterpie.png"
+  },
+  {
+    "index": "11",
+    "name": "Metapod",
+    "exp": 72,
+    "hp": 50,
+    "attack": 20,
+    "defense": 55,
+    "sp_attack": 25,
+    "sp_defense": 25,
+    "speed": 30,
+    "total_evs": 205,
+    "type": [
+      "bug"
+    ],
+    "description": "A steel-hard shell protects its tender body. It quietly endures hardships while awaiting evolution.",
+    "height": "0.7 m",
+    "weight": "9.9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/d/da/0011Metapod.png/70px-0011Metapod.png"
+  },
+  {
+    "index": "12",
+    "name": "Butterfree",
+    "exp": 198,
+    "hp": 60,
+    "attack": 45,
+    "defense": 50,
+    "sp_attack": 90,
+    "sp_defense": 80,
+    "speed": 70,
+    "total_evs": 395,
+    "type": [
+      "bug",
+      "flying"
+    ],
+    "description": "It loves the honey of flowers and can locate flower patches that have even tiny amounts of pollen.",
+    "height": "1.1 m",
+    "weight": "32 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/55/0012Butterfree.png/70px-0012Butterfree.png"
+  },
+  {
+    "index": "13",
+    "name": "Weedle",
+    "exp": 39,
+    "hp": 40,
+    "attack": 35,
+    "defense": 30,
+    "sp_attack": 20,
+    "sp_defense": 20,
+    "speed": 50,
+    "total_evs": 195,
+    "type": [
+      "bug",
+      "poison"
+    ],
+    "description": "It eats its weight in leaves every day. It fends off attackers with the needle on its head.",
+    "height": "0.3 m",
+    "weight": "3.2 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/3/36/0013Weedle.png/70px-0013Weedle.png"
+  },
+  {
+    "index": "14",
+    "name": "Kakuna",
+    "exp": 72,
+    "hp": 45,
+    "attack": 25,
+    "defense": 50,
+    "sp_attack": 25,
+    "sp_defense": 25,
+    "speed": 35,
+    "total_evs": 205,
+    "type": [
+      "bug",
+      "poison"
+    ],
+    "description": "While awaiting evolution, it hides from predators under leaves and in nooks of branches.",
+    "height": "0.6 m",
+    "weight": "10 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/f3/0014Kakuna.png/70px-0014Kakuna.png"
+  },
+  {
+    "index": "15",
+    "name": "Beedrill",
+    "exp": 198,
+    "hp": 65,
+    "attack": 90,
+    "defense": 40,
+    "sp_attack": 45,
+    "sp_defense": 80,
+    "speed": 75,
+    "total_evs": 395,
+    "type": [
+      "bug",
+      "poison"
+    ],
+    "description": "Its best attack involves flying around at high speed, striking with poison needles, then flying off.",
+    "height": "1 m",
+    "weight": "29.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/f7/0015Beedrill.png/70px-0015Beedrill.png"
+  },
+  {
+    "index": "16",
+    "name": "Pidgey",
+    "exp": 50,
+    "hp": 40,
+    "attack": 45,
+    "defense": 40,
+    "sp_attack": 35,
+    "sp_defense": 35,
+    "speed": 56,
+    "total_evs": 251,
+    "type": [
+      "flying",
+      "normal"
+    ],
+    "description": "It is docile and prefers to avoid conflict. If disturbed, however, it can ferociously strike back.",
+    "height": "0.3 m",
+    "weight": "1.8 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/0/0c/0016Pidgey.png/70px-0016Pidgey.png"
+  },
+  {
+    "index": "17",
+    "name": "Pidgeotto",
+    "exp": 122,
+    "hp": 63,
+    "attack": 60,
+    "defense": 55,
+    "sp_attack": 50,
+    "sp_defense": 50,
+    "speed": 71,
+    "total_evs": 349,
+    "type": [
+      "flying",
+      "normal"
+    ],
+    "description": "It flies over its wide territory in search of prey, downing it with its highly developed claws.",
+    "height": "1.1 m",
+    "weight": "30 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/8/82/0017Pidgeotto.png/70px-0017Pidgeotto.png"
+  },
+  {
+    "index": "18",
+    "name": "Pidgeot",
+    "exp": 240,
+    "hp": 83,
+    "attack": 80,
+    "defense": 75,
+    "sp_attack": 70,
+    "sp_defense": 70,
+    "speed": 101,
+    "total_evs": 479,
+    "type": [
+      "flying",
+      "normal"
+    ],
+    "description": "It flies over its wide territory in search of prey, downing it with its highly developed claws.",
+    "height": "1.5 m",
+    "weight": "39.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/7/73/0018Pidgeot.png/70px-0018Pidgeot.png"
+  },
+  {
+    "index": "19",
+    "name": "Rattata",
+    "exp": 51,
+    "hp": 30,
+    "attack": 56,
+    "defense": 35,
+    "sp_attack": 25,
+    "sp_defense": 35,
+    "speed": 72,
+    "total_evs": 253,
+    "type": [
+      "normal"
+    ],
+    "description": "It searches for food all day. It gnaws on hard objects to wear down its fangs, which grow constantly during its lifetime.",
+    "height": "0.3 m",
+    "weight": "3.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/a/aa/0019Rattata.png/70px-0019Rattata.png"
+  },
+  {
+    "index": "20",
+    "name": "Raticate",
+    "exp": 145,
+    "hp": 55,
+    "attack": 81,
+    "defense": 60,
+    "sp_attack": 50,
+    "sp_defense": 70,
+    "speed": 97,
+    "total_evs": 413,
+    "type": [
+      "normal"
+    ],
+    "description": "With its long fangs, this surprisingly violent Pokémon can gnaw away even thick concrete with ease.",
+    "height": "0.7 m",
+    "weight": "18.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/2c/0020Raticate.png/70px-0020Raticate.png"
+  },
+  {
+    "index": "21",
+    "name": "Spearow",
+    "exp": 52,
+    "hp": 40,
+    "attack": 60,
+    "defense": 30,
+    "sp_attack": 31,
+    "sp_defense": 31,
+    "speed": 70,
+    "total_evs": 262,
+    "type": [
+      "flying",
+      "normal"
+    ],
+    "description": "It flaps its small wings busily to fly. Using its beak, it searches in grass for prey.",
+    "height": "0.3 m",
+    "weight": "2 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/2d/0021Spearow.png/70px-0021Spearow.png"
+  },
+  {
+    "index": "22",
+    "name": "Fearow",
+    "exp": 155,
+    "hp": 65,
+    "attack": 90,
+    "defense": 65,
+    "sp_attack": 61,
+    "sp_defense": 61,
+    "speed": 100,
+    "total_evs": 442,
+    "type": [
+      "flying",
+      "normal"
+    ],
+    "description": "It has the stamina to fly all day on its broad wings. It fights by using its sharp beak.",
+    "height": "1.2 m",
+    "weight": "38 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/9/92/0022Fearow.png/70px-0022Fearow.png"
+  },
+  {
+    "index": "23",
+    "name": "Ekans",
+    "exp": 58,
+    "hp": 35,
+    "attack": 60,
+    "defense": 44,
+    "sp_attack": 40,
+    "sp_defense": 54,
+    "speed": 55,
+    "total_evs": 288,
+    "type": [
+      "poison"
+    ],
+    "description": "It sneaks through grass without making a sound and strikes unsuspecting prey from behind.",
+    "height": "2 m",
+    "weight": "6.9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/d/d2/0023Ekans.png/70px-0023Ekans.png"
+  },
+  {
+    "index": "24",
+    "name": "Arbok",
+    "exp": 157,
+    "hp": 60,
+    "attack": 85,
+    "defense": 69,
+    "sp_attack": 65,
+    "sp_defense": 79,
+    "speed": 80,
+    "total_evs": 438,
+    "type": [
+      "poison"
+    ],
+    "description": "The pattern on its belly is for intimidation. It constricts foes while they are frozen in fear.",
+    "height": "3.5 m",
+    "weight": "65 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/51/0024Arbok.png/70px-0024Arbok.png"
+  },
+  {
+    "index": "25",
+    "name": "Pikachu",
+    "exp": 112,
+    "hp": 35,
+    "attack": 55,
+    "defense": 40,
+    "sp_attack": 50,
+    "sp_defense": 50,
+    "speed": 90,
+    "total_evs": 320,
+    "type": [
+      "electric"
+    ],
+    "description": "It occasionally uses an electric shock to recharge a fellow Pikachu that is in a weakened state.",
+    "height": "0.4 m",
+    "weight": "6 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/4/4a/0025Pikachu.png/70px-0025Pikachu.png"
+  },
+  {
+    "index": "26",
+    "name": "Raichu",
+    "exp": 243,
+    "hp": 60,
+    "attack": 90,
+    "defense": 55,
+    "sp_attack": 90,
+    "sp_defense": 80,
+    "speed": 110,
+    "total_evs": 485,
+    "type": [
+      "electric"
+    ],
+    "description": "Its tail discharges electricity into the ground, protecting it from getting shocked.",
+    "height": "0.8 m",
+    "weight": "30 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/b/b0/0026Raichu.png/70px-0026Raichu.png"
+  },
+  {
+    "index": "27",
+    "name": "Sandshrew",
+    "exp": 60,
+    "hp": 50,
+    "attack": 75,
+    "defense": 85,
+    "sp_attack": 20,
+    "sp_defense": 30,
+    "speed": 40,
+    "total_evs": 300,
+    "type": [
+      "ground"
+    ],
+    "description": "It digs deep burrows to live in. When in danger, it rolls up its body to withstand attacks.",
+    "height": "0.6 m",
+    "weight": "12 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/e/e9/0027Sandshrew.png/70px-0027Sandshrew.png"
+  },
+  {
+    "index": "28",
+    "name": "Sandslash",
+    "exp": 158,
+    "hp": 75,
+    "attack": 100,
+    "defense": 110,
+    "sp_attack": 45,
+    "sp_defense": 55,
+    "speed": 65,
+    "total_evs": 450,
+    "type": [
+      "ground"
+    ],
+    "description": "The spikes on its body are made up of its hardened hide. It rolls up and attacks foes with its spikes.",
+    "height": "1 m",
+    "weight": "29.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/a/a4/0028Sandslash.png/70px-0028Sandslash.png"
+  },
+  {
+    "index": "29",
+    "name": "Nidoran ♀",
+    "exp": 55,
+    "hp": 55,
+    "attack": 47,
+    "defense": 52,
+    "sp_attack": 40,
+    "sp_defense": 40,
+    "speed": 41,
+    "total_evs": 275,
+    "type": [
+      "poison"
+    ],
+    "description": "While it does not prefer to fight, even one drop of the poison it secretes from barbs can be fatal.",
+    "height": "0.4 m",
+    "weight": "7 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/b/b2/0029Nidoran.png/70px-0029Nidoran.png"
+  },
+  {
+    "index": "30",
+    "name": "Nidorina",
+    "exp": 128,
+    "hp": 70,
+    "attack": 62,
+    "defense": 67,
+    "sp_attack": 55,
+    "sp_defense": 55,
+    "speed": 56,
+    "total_evs": 365,
+    "type": [
+      "poison"
+    ],
+    "description": "When it senses danger, it raises all the barbs on its body. These barbs grow slower than Nidorinos.",
+    "height": "0.8 m",
+    "weight": "20 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/e/ea/0030Nidorina.png/70px-0030Nidorina.png"
+  },
+  {
+    "index": "31",
+    "name": "Nidoqueen",
+    "exp": 253,
+    "hp": 90,
+    "attack": 92,
+    "defense": 87,
+    "sp_attack": 75,
+    "sp_defense": 85,
+    "speed": 76,
+    "total_evs": 505,
+    "type": [
+      "ground",
+      "poison"
+    ],
+    "description": "Its entire body is armored with hard scales. It will protect the young in its burrow with its life.",
+    "height": "1.3 m",
+    "weight": "60 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/9/9d/0031Nidoqueen.png/70px-0031Nidoqueen.png"
+  },
+  {
+    "index": "32",
+    "name": "Nidoran ♂",
+    "exp": 55,
+    "hp": 46,
+    "attack": 57,
+    "defense": 40,
+    "sp_attack": 40,
+    "sp_defense": 40,
+    "speed": 50,
+    "total_evs": 273,
+    "type": [
+      "poison"
+    ],
+    "description": "It scans its surroundings by raising its ears out of the grass. Its toxic horn is for protection.",
+    "height": "0.5 m",
+    "weight": "9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/8/8c/0032Nidoran.png/70px-0032Nidoran.png"
+  },
+  {
+    "index": "33",
+    "name": "Nidorino",
+    "exp": 128,
+    "hp": 61,
+    "attack": 72,
+    "defense": 57,
+    "sp_attack": 55,
+    "sp_defense": 55,
+    "speed": 65,
+    "total_evs": 365,
+    "type": [
+      "poison"
+    ],
+    "description": "It has a violent disposition and stabs foes with its horn, which oozes poison upon impact.",
+    "height": "0.9 m",
+    "weight": "19.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/1/1e/0033Nidorino.png/70px-0033Nidorino.png"
+  },
+  {
+    "index": "34",
+    "name": "Nidoking",
+    "exp": 253,
+    "hp": 81,
+    "attack": 102,
+    "defense": 77,
+    "sp_attack": 85,
+    "sp_defense": 75,
+    "speed": 85,
+    "total_evs": 505,
+    "type": [
+      "ground",
+      "poison"
+    ],
+    "description": "One swing of its mighty tail can snap a telephone pole as if it were a matchstick.",
+    "height": "1.4 m",
+    "weight": "62 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/21/0034Nidoking.png/70px-0034Nidoking.png"
+  },
+  {
+    "index": "35",
+    "name": "Clefairy",
+    "exp": 113,
+    "hp": 70,
+    "attack": 45,
+    "defense": 48,
+    "sp_attack": 60,
+    "sp_defense": 65,
+    "speed": 35,
+    "total_evs": 323,
+    "type": [
+      "fairy"
+    ],
+    "description": "On nights with a full moon, Clefairy gather from all over and dance. Bathing in moonlight makes them float.",
+    "height": "0.6 m",
+    "weight": "7.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/b/b7/0035Clefairy.png/70px-0035Clefairy.png"
+  },
+  {
+    "index": "36",
+    "name": "Clefable",
+    "exp": 242,
+    "hp": 95,
+    "attack": 70,
+    "defense": 73,
+    "sp_attack": 95,
+    "sp_defense": 90,
+    "speed": 60,
+    "total_evs": 483,
+    "type": [
+      "fairy"
+    ],
+    "description": "Their ears are sensitive enough to hear a pin drop from over a mile away, so theyre usually found in quiet places.",
+    "height": "1.3 m",
+    "weight": "40 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/a/a4/0036Clefable.png/70px-0036Clefable.png"
+  },
+  {
+    "index": "37",
+    "name": "Vulpix",
+    "exp": 60,
+    "hp": 38,
+    "attack": 41,
+    "defense": 40,
+    "sp_attack": 50,
+    "sp_defense": 65,
+    "speed": 65,
+    "total_evs": 299,
+    "type": [
+      "fire"
+    ],
+    "description": "As each tail grows, its fur becomes more lustrous. When held, it feels slightly warm.",
+    "height": "0.6 m",
+    "weight": "9.9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/0/06/0037Vulpix.png/70px-0037Vulpix.png"
+  },
+  {
+    "index": "38",
+    "name": "Ninetales",
+    "exp": 177,
+    "hp": 73,
+    "attack": 76,
+    "defense": 75,
+    "sp_attack": 81,
+    "sp_defense": 100,
+    "speed": 100,
+    "total_evs": 505,
+    "type": [
+      "fire"
+    ],
+    "description": "Each of its nine tails is imbued with supernatural power, and it can live for a thousand years.",
+    "height": "1.1 m",
+    "weight": "19.9 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/7/7f/0038Ninetales-Alola.png/70px-0038Ninetales-Alola.png"
+  },
+  {
+    "index": "39",
+    "name": "Jigglypuff",
+    "exp": 95,
+    "hp": 115,
+    "attack": 45,
+    "defense": 20,
+    "sp_attack": 45,
+    "sp_defense": 25,
+    "speed": 20,
+    "total_evs": 270,
+    "type": [
+      "fairy",
+      "normal"
+    ],
+    "description": "Looking into its cute, round eyes makes it start singing a song so pleasant listeners cant help but fall asleep.",
+    "height": "0.5 m",
+    "weight": "5.5 kg",
+    "image_url": "https://archives.bulbagarden.net/media/upload/thumb/3/3a/0039Jigglypuff.png/70px-0039Jigglypuff.png"
+  }
+]

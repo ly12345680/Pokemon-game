@@ -1,0 +1,1154 @@
+[
+    {
+        "name": "ly",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 188,
+                "hp": 5,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 190,
+                "hp": 5,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 189,
+                "hp": 5,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            }
+        ]
+    },
+    {
+        "name": "ly3",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 125,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 127,
+                "hp": 34,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 126,
+                "hp": 39,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            }
+        ]
+    },
+    {
+        "name": "ly3",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 125,
+                "hp": 30,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 127,
+                "hp": 30,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 126,
+                "hp": 30,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "hi",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "ly4",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "y",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 125,
+                "hp": 5,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 127,
+                "hp": 5,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 126,
+                "hp": 5,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            }
+        ]
+    },
+    {
+        "name": "ly8",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "oi2",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "ly1",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "oi",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 125,
+                "hp": 23,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 127,
+                "hp": 23,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 126,
+                "hp": 23,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            }
+        ]
+    },
+    {
+        "name": "oid2",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 125,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 127,
+                "hp": 30,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": true
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 126,
+                "hp": 30,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "1",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "ha",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "jr",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "s",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    },
+    {
+        "name": "iu",
+        "pokemon_list": [
+            {
+                "index": "4",
+                "name": "Charmander",
+                "exp": 62,
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "sp_attack": 60,
+                "sp_defense": 50,
+                "speed": 65,
+                "total_evs": 309,
+                "type": [
+                    "fire"
+                ],
+                "description": "The fire on the tip of its tail is a measure of its life. If healthy, its tail burns intensely.",
+                "height": "0.6 m",
+                "weight": "8.5 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "1",
+                "name": "Bulbasaur",
+                "exp": 64,
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "sp_attack": 65,
+                "sp_defense": 65,
+                "speed": 45,
+                "total_evs": 318,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "description": "For some time after its birth, it grows by gaining nourishment from the seed on its back.",
+                "height": "0.7 m",
+                "weight": "6.9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            },
+            {
+                "index": "7",
+                "name": "Squirtle",
+                "exp": 63,
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "total_evs": 314,
+                "type": [
+                    "water"
+                ],
+                "description": "It shelters itself in its shell then strikes back with spouts of water at every opportunity.",
+                "height": "0.5 m",
+                "weight": "9 kg",
+                "image_url": "https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png",
+                "level": 0,
+                "accum_exp": 0,
+                "deployable": false
+            }
+        ]
+    }
+]
