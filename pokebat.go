@@ -194,7 +194,7 @@ func (w *World) removePokemon(p *Pokemon) {
 }
 func getPlayerName() string {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter your name: ")
+	fmt.Print("Press ESC to cancel Game\nEnter your name: ")
 	name, _ := reader.ReadString('\n')
 	return strings.TrimSpace(name)
 }
