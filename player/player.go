@@ -12,38 +12,13 @@ import (
 	"github.com/eiannone/keyboard"
 )
 
-type Pokemon struct {
-	Index       string   `json:"index"`
-	Name        string   `json:"name"`
-	Exp         int      `json:"exp"`
-	HP          int      `json:"hp"`
-	Attack      int      `json:"attack"`
-	Defense     int      `json:"defense"`
-	SpAttack    int      `json:"sp_attack"`
-	SpDefense   int      `json:"sp_defense"`
-	Speed       int      `json:"speed"`
-	TotalEVs    int      `json:"total_evs"`
-	Type        []string `json:"type"`
-	Description string   `json:"description"`
-	Height      string   `json:"height"`
-	Weight      string   `json:"weight"`
-	ImageURL    string   `json:"image_url"`
-	Level       int      `json:"level"`
-	AccumExp    int      `json:"accum_exp"`
-}
-
-type Player struct {
-	Name        string    `json:"name"`
-	PokemonList []Pokemon `json:"pokemon_list"`
-}
-
 var (
 	consoleLock sync.Mutex
 )
 
 func onMessage(conn net.Conn) {
+	reader := bufio.NewReader(conn)
 	for {
-		reader := bufio.NewReader(conn)
 		msg, _ := reader.ReadString('#')
 
 		consoleLock.Lock()
@@ -53,7 +28,7 @@ func onMessage(conn net.Conn) {
 }
 
 func main() {
-	connection, err := net.Dial("tcp", "localhost:3012")
+	connection, err := net.Dial("tcp", "localhost:3015")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -63,7 +38,7 @@ func main() {
 	input, _ := nameReader.ReadString('\n')
 
 	connection.Write([]byte(input))
-	fmt.Println("********** MESSAGES **********")
+	fmt.Println("********** Entered Game **********")
 
 	go onMessage(connection)
 
@@ -74,7 +49,10 @@ func main() {
 	if mode == "1" {
 		for {
 			msgReader := bufio.NewReader(os.Stdin)
+
 			msg, err := msgReader.ReadString('\n')
+			// Remove any CR characters from the input
+			msg = strings.Replace(msg, "\r", "", -1)
 			if err != nil {
 				break
 			}
@@ -101,11 +79,11 @@ func main() {
 					panic(event.Err)
 				}
 				// Send the key character to the input channel
-				msg := string(event.Key)
+				msg := string(rune(event.Key))
 				consoleLock.Lock()
 				_, err := connection.Write([]byte(msg + "\n"))
 				consoleLock.Unlock()
-				fmt.Println("Sent key press event to server: ", string(event.Key))
+				// fmt.Println("Sent key press event to server: ", string(event.Key))
 				if err != nil {
 					fmt.Println("Failed to send key press event to server:", err)
 					return

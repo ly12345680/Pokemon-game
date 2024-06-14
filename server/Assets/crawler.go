@@ -37,7 +37,7 @@ func fetchMainPageHTML(ctx context.Context) (string, error) {
 	var html string
 	err := chromedp.Run(ctx,
 		chromedp.Navigate("https://pokedex.org/"),
-		chromedp.Sleep(1*time.Second),
+		chromedp.Sleep(1*time.Microsecond),
 		chromedp.OuterHTML("html", &html),
 	)
 	if err != nil {
@@ -50,7 +50,7 @@ func fetchPokemonPageHTML(ctx context.Context, url string) (string, error) {
 	var html string
 	err := chromedp.Run(ctx,
 		chromedp.Navigate(url),
-		chromedp.Sleep(1*time.Second),
+		chromedp.Sleep(1*time.Microsecond),
 		chromedp.OuterHTML("html", &html),
 	)
 	if err != nil {
@@ -69,7 +69,7 @@ func parseMainPage(html string) ([]string, []string, error) {
 	var names []string
 	doc.Find("#monsters-list-wrapper li").Each(func(i int, s *goquery.Selection) {
 		fmt.Println(s.Contents().Text())
-		if i >= 39 {
+		if i >= 649 {
 			return
 		}
 		name := strings.TrimSpace(s.Find("span").Text())
@@ -126,25 +126,26 @@ func parsePokemonPage(html, name, index string) (Pokemon, error) {
 	return pokemon, nil
 }
 
-func fetchExpAndImage(index string) (int, string, error) {
+func fetchExpAndImage(index string) (int, string, string, error) {
 	url := "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield_(Generation_IX)"
 	resp, err := http.Get(url)
 	if err != nil {
-		return 0, "", fmt.Errorf("failed to fetch Bulbapedia page: %v", err)
+		return 0, "", "", fmt.Errorf("failed to fetch Bulbapedia page: %v", err)
 	}
 	defer resp.Body.Close()
 
 	doc, err := goquery.NewDocumentFromReader(resp.Body)
 	if err != nil {
-		return 0, "", fmt.Errorf("failed to parse Bulbapedia page HTML: %v", err)
+		return 0, "", "", fmt.Errorf("failed to parse Bulbapedia page HTML: %v", err)
 	}
 
 	pokemonIndex := fmt.Sprintf("%04s", index)
-	var expText, imageURL string
+	var expText, imageURL, name string
 	doc.Find("tr").Each(func(i int, s *goquery.Selection) {
 		if strings.TrimSpace(s.Find("td").First().Text()) == pokemonIndex {
 			expText = s.Find("td").Eq(3).Text()
 			imageURL = s.Find("td").Eq(1).Find("img").AttrOr("src", "")
+			name = s.Find("td").Eq(2).Text()
 			return
 		}
 	})
@@ -152,10 +153,10 @@ func fetchExpAndImage(index string) (int, string, error) {
 	expText = strings.TrimSpace(expText)
 	exp, err := strconv.Atoi(expText)
 	if err != nil {
-		return 0, "", fmt.Errorf("failed to parse EXP value: %v", err)
+		return 0, "", "", fmt.Errorf("failed to parse EXP value: %v", err)
 	}
 
-	return exp, imageURL, nil
+	return exp, imageURL, name, nil
 }
 
 func fetchPokemons(ctx context.Context) ([]Pokemon, error) {
@@ -165,8 +166,6 @@ func fetchPokemons(ctx context.Context) ([]Pokemon, error) {
 	}
 
 	names, urls, err := parseMainPage(html)
-	fmt.Println(urls[33:42])
-	fmt.Println(names[33:42])
 	fmt.Printf("Found %d Pokémon\n", len(names))
 	fmt.Printf("Found %d Pokémon\n", len(urls))
 	if err != nil {
@@ -187,9 +186,18 @@ func fetchPokemons(ctx context.Context) ([]Pokemon, error) {
 			fmt.Printf("Error parsing data for %s: %v\n", name, err)
 			continue
 		}
-		exp, imageURL, err := fetchExpAndImage(pokemon.Index)
+		exp, imageURL, newName, err := fetchExpAndImage(pokemon.Index)
 		if err != nil {
 			fmt.Printf("Error fetching EXP and image for %s: %v\n", pokemon.Name, err)
+		}
+		// if pokemon.Name == "" && imageURL != "https://archives.bulbagarden.net/media/upload/thumb/0/02/0250Ho-Oh.png/250px-0250Ho-Oh.png" {
+		// 	var partOfImageURL = strings.Split(strings.Split(imageURL, "-")[1], ".")
+		// 	fmt.Println(partOfImageURL)
+		// 	// elminates the 4 fist element of the slice
+		// 	pokemon.Name = partOfImageURL[0][4:]
+		// }
+		if pokemon.Name == "" {
+			pokemon.Name = newName[:len(newName)-1]
 		}
 		pokemon.Exp = exp
 		pokemon.ImageURL = imageURL

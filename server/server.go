@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -95,15 +94,18 @@ var (
 	pokedex      []Pokemon
 	// moveCh        = make(chan string)
 	world         = newWorld(worldSize)
-	avatarPokeman = []string{"🏃", "🙎", "🧛", "🥷", "👨", "🚶"}
-	avatarPokemon = []string{"🔥", "🌿", "💧", "⛰️", "🪽", "⚡️"}
+	avatarPokeman = []string{"🏃", "🚶", "🥷", "🙎", "🧛", "👨"}
+	// avatarPokemon = []string{"🔥", "🌿", "💧", "⛰️", "🪽", "⚡️"}
+	messages         []string
+	listofBattle     []Participant
+	existingPlayers1 []Player
 )
 
 func main() {
 	// Create the world
 
 	// Start the server
-	server, err := net.Listen("tcp", ":3012")
+	server, err := net.Listen("tcp", ":3015")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -116,6 +118,7 @@ func main() {
 	// fmt.Println(pokedex)
 	fmt.Println("Pokedex loaded")
 
+	// Accept incoming connections
 	go func() {
 		for {
 			conn, err := server.Accept()
@@ -128,37 +131,36 @@ func main() {
 			connCh <- conn
 		}
 	}()
+	// display the battle
 	go func() {
-
 		for {
-			batleModeCount := 0
-			for _, p := range participants {
-				if !p.catchMode {
-					batleModeCount++
-				}
-			}
-			if batleModeCount == 2 {
-				winner, loser := battle(&participants[0], &participants[1])
+			listofBattle = listOfBattleMode(participants)
+			if len(listofBattle) == 2 {
+				// Start the battle for participants in battle mode
+				winner, loser := battle(&listofBattle[0], &listofBattle[1])
 				saveWinner(winner.player)
-				msg := fmt.Sprintf("\n%s wins the battle - %s lost\n", winner.player.Name, loser.player.Name)
-				msgCh <- msg + "#"
-				// remove all connections
-				for _, p := range participants {
-					if !p.catchMode {
-						closeCh <- p
-					}
+				msg := fmt.Sprintf("\n🔴%s wins the battle - %s lost\n", winner.player.Name, loser.player.Name)
+				for _, p := range listofBattle {
+					msgChOne <- Message{msg: msg + "#", conn: p.conn}
 				}
+				// remove all connections
+				for _, p := range listofBattle {
+					closeCh <- p
+				}
+
 			}
 		}
 	}()
+	// Display the world
 	go func() {
 		// check if there are any players in the game
-
 		for {
 			time.Sleep(spawTime)
 			// check if there are any players in the game
 			isCatchMode := false
-			for _, p := range participants {
+			var i int
+			var p Participant
+			for i, p = range participants {
 				if p.catchMode {
 					isCatchMode = true
 				}
@@ -169,7 +171,11 @@ func main() {
 					for {
 						time.Sleep(spawTime)
 						world.spawnPokemonWave()
-						world.display()
+						if len(listOfCatchMode(participants)) > 0 {
+							for _, p := range listOfCatchMode(participants) {
+								msgChOne <- Message{msg: world.display(), conn: p.conn}
+							}
+						}
 					}
 				}()
 
@@ -179,12 +185,18 @@ func main() {
 						time.Sleep(despawnTime)
 						world.deSpawnPokemons()
 
-						world.display()
+						if len(listOfCatchMode(participants)) > 0 {
+							for _, p := range listOfCatchMode(participants) {
+								msgChOne <- Message{msg: world.display(), conn: p.conn}
+							}
+						}
 					}
 				}()
 				// Wait for the game to end
 				end := <-endCh
-				fmt.Printf("Game %s\n", end)
+				isCatchMode = false
+
+				fmt.Printf("%s %s catching game\n", participants[i].player.Name, end)
 			}
 		}
 	}()
@@ -202,7 +214,6 @@ func main() {
 			fmt.Printf("%s exit\n", participant.player.Name)
 			removeParticipant(participant)
 			// remove player from the world
-			fmt.Println(participant.catchMode)
 			if participant.catchMode {
 				world.mux.Lock()
 				delete(world.players, participant.player.Name)
@@ -230,6 +241,28 @@ func newWorld(size int) *World {
 		players:  make(map[string]*Player),
 		pokemons: []*Pokemon{},
 	}
+}
+func listOfCatchMode(participants []Participant) []Participant {
+	// return the list of participants in catch mode
+	var catchModeParticipants []Participant
+	for _, p := range participants {
+		if p.catchMode {
+			catchModeParticipants = append(catchModeParticipants, p)
+		}
+	}
+	return catchModeParticipants
+}
+func listOfBattleMode(participants []Participant) []Participant {
+	// return the list of participants in battle mode
+	var battleModeParticipants []Participant
+	if len(participants) > 0 {
+		for _, p := range participants {
+			if !p.catchMode {
+				battleModeParticipants = append(battleModeParticipants, p)
+			}
+		}
+	}
+	return battleModeParticipants
 }
 func (w *World) addPlayer(name string, x int, y int) *Player {
 	w.mux.Lock()
@@ -286,13 +319,15 @@ func (w *World) movePlayer(name string, dx, dy int) {
 	if _, ok := w.grid[x][y].(*Player); ok {
 		x = oldX
 		y = oldY
-		fmt.Println("There's another player at the new position. You can't move there.")
+		// fmt.Println("There's another player at the new position. You can't move there.")
+		msgCh <- fmt.Sprintf("There's another player at the new position. %s can't move there.#", player.Name)
 		time.Sleep(2 * time.Second)
 	}
 	// Check if there's a Pokémon at the new position
 	if p, ok := w.grid[x][y].(*Pokemon); ok {
 		if len(player.PokemonList) <= maxPokemon {
-			fmt.Printf("%s captured %s!\n", player.Name, p.Name)
+			// fmt.Printf("%s captured %s!\n", player.Name, p.Name)
+			msgCh <- fmt.Sprintf("%s captured %s!\n#", player.Name, p.Name)
 			player.PokemonList = append(player.PokemonList, p)
 			w.removePokemon(p)
 			// Remove player from old position
@@ -301,7 +336,8 @@ func (w *World) movePlayer(name string, dx, dy int) {
 		} else {
 			x = oldX
 			y = oldY
-			fmt.Println("You have reached the maximum number of Pokémon. You can't capture more.")
+			// fmt.Println("You have reached the maximum number of Pokémon. You can't capture more.")
+			msgCh <- fmt.Sprintf("You have reached the maximum number of Pokémon. %s can't capture more.#", player.Name)
 			time.Sleep(2 * time.Second)
 		}
 	}
@@ -314,27 +350,34 @@ func (w *World) movePlayer(name string, dx, dy int) {
 	w.grid[player.pos.X][player.pos.Y] = player
 }
 
-func (w *World) display() {
+func (w *World) display() string {
 	w.mux.Lock()
 	defer w.mux.Unlock()
-	fmt.Println("\n\n\n")
-
+	var message string
+	// Clear the screen
+	message += "\n\n\n"
 	for i := 0; i < w.size; i++ {
 		for j := 0; j < w.size; j++ {
 			if w.grid[i][j] != nil {
 				switch w.grid[i][j].(type) {
 				case *Player:
 					fmt.Print(w.grid[i][j].(*Player).avatar)
+					message += w.grid[i][j].(*Player).avatar
 				case *Pokemon:
 					fmt.Print(w.grid[i][j].(*Pokemon).avatar)
+					message += w.grid[i][j].(*Pokemon).avatar
 				}
 			} else {
 				fmt.Print("￭ ")
+				message += "￭ "
 			}
 		}
 		fmt.Println()
+		message += "\n"
 	}
 	fmt.Println()
+	message += "\n#"
+	return message
 }
 func (w *World) spawnPokemonWave() {
 	// Ensure n is greater than 0
@@ -364,20 +407,21 @@ func (w *World) spawnPokemonWave() {
 		// Randomly generate the EV points
 		pokemon.EVPoints = math.Round((0.5+rand.Float64()/2)*100) / 100
 		// assign avatar
-		switch pokemon.Type[0] {
-		case "fire":
-			pokemon.avatar = avatarPokemon[0]
-		case "grass":
-			pokemon.avatar = avatarPokemon[1]
-		case "water":
-			pokemon.avatar = avatarPokemon[2]
-		case "rock":
-			pokemon.avatar = avatarPokemon[3]
-		case "Flying":
-			pokemon.avatar = avatarPokemon[4]
-		case "electric":
-			pokemon.avatar = avatarPokemon[5]
-		}
+		// switch pokemon.Type[0] {
+		// case "fire":
+		// 	pokemon.avatar = avatarPokemon[0]
+		// case "grass":
+		// 	pokemon.avatar = avatarPokemon[1]
+		// case "water":
+		// 	pokemon.avatar = avatarPokemon[2]
+		// case "rock":
+		// 	pokemon.avatar = avatarPokemon[3]
+		// case "Flying":
+		// 	pokemon.avatar = avatarPokemon[4]
+		// case "electric":
+		// 	pokemon.avatar = avatarPokemon[5]
+		// }
+		pokemon.avatar = "🐼"
 
 		// Add the Pokemon to the world
 		w.grid[x][y] = pokemon
@@ -394,48 +438,37 @@ func (w *World) removePokemon(p *Pokemon) {
 	}
 	w.grid[p.pos.X][p.pos.Y] = nil
 }
-func getPlayerName() string {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Press ESC to cancel Game\nEnter your name: ")
-	name, _ := reader.ReadString('\n')
-	return strings.TrimSpace(name)
-}
-func getInput(conn net.Conn) string {
-	// fmt.Print("Press ESC to cancel Game\nEnter your name: ")
-	mu.Lock()
-	reader := bufio.NewReader(conn)
-	input, _ := reader.ReadString('\n')
-	mu.Unlock()
 
-	return strings.TrimSpace(input)
-}
 func savePlayerData(player Player) {
 	// Load the existing players from the JSON file
 	file, _ := os.Open(playerLink)
 	defer file.Close()
 	decoder := json.NewDecoder(file)
-	existingPlayers := []Player{}
-	_ = decoder.Decode(&existingPlayers)
+
+	_ = decoder.Decode(&existingPlayers1)
 	// condition to check new player
 	isNewPlayer := false
 	// Find the existed player in the list and update their data
-	for i, existingPlayer := range existingPlayers {
+	mu.Lock()
+	for i, existingPlayer := range existingPlayers1 {
 		if existingPlayer.Name == player.Name {
-			existingPlayers[i] = player
+			existingPlayers1[i] = player
 			break
 		}
 	}
+	mu.Unlock()
 	// Save new player data to the JSON file
 	if !isNewPlayer {
-		existingPlayers = append(existingPlayers, player)
+		existingPlayers1 = append(existingPlayers1, player)
 	}
 	file, _ = os.Create(playerLink)
 	defer file.Close()
 	encoder := json.NewEncoder(file)
 	encoder.SetIndent("", "    ") // Set indent to 4 spaces
-	_ = encoder.Encode(existingPlayers)
+	_ = encoder.Encode(existingPlayers1)
 
-	fmt.Printf("Player %s saved\n", player.Name)
+	// fmt.Printf("Player %s saved\n", player.Name)
+	msgCh <- fmt.Sprintf("Player %s saved\n#", player.Name)
 
 }
 func (w *World) deSpawnPokemons() {
@@ -454,14 +487,18 @@ func removeParticipant(participant Participant) {
 
 	for i := range participants {
 		if participants[i].player.Name == participant.player.Name {
+			mu.Lock()
 			participants = append(participants[:i], participants[i+1:]...)
+			mu.Unlock()
 			break
 		}
 	}
 	// Remove from conns
 	for i, conn := range conns {
 		if conn == participant.conn {
+			mu.Lock()
 			conns = append(conns[:i], conns[i+1:]...)
+			mu.Unlock()
 			break
 		}
 	}
@@ -481,14 +518,7 @@ func publishMsgOne(conn net.Conn, msg string) error {
 	writeMu.Lock()
 	defer writeMu.Unlock()
 
-	msgBytes := []byte(msg)
-	lenBytes := make([]byte, 4)
-	binary.BigEndian.PutUint32(lenBytes, uint32(len(msgBytes)))
-
-	if _, err := conn.Write(lenBytes); err != nil {
-		return err
-	}
-	if _, err := conn.Write(msgBytes); err != nil {
+	if _, err := conn.Write([]byte(msg)); err != nil {
 		return err
 	}
 	return nil
@@ -499,43 +529,53 @@ func publishMsgAll(msg string) error {
 	defer writeMu.Unlock()
 
 	for i := range conns {
-		msgBytes := []byte(msg)
-		lenBytes := make([]byte, 4)
-		binary.BigEndian.PutUint32(lenBytes, uint32(len(msgBytes)))
+		if _, err := conns[i].Write([]byte(msg)); err != nil {
+			return err
+		}
 
-		if _, err := conns[i].Write(lenBytes); err != nil {
-			return err
-		}
-		if _, err := conns[i].Write(msgBytes); err != nil {
-			return err
-		}
 	}
 	return nil
 }
 
 func onMessage(conn net.Conn, pokedex []Pokemon) {
 	fmt.Println("A client connected")
-	reader := bufio.NewReader(conn)
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-	// separate the name and mode
-	input = strings.TrimSpace(input)
-	playerName := strings.Split(input, " ")[0]
-	mode := strings.Split(input, " ")[1]
+	var playerName string
+	var mode string
 
+	for {
+		reader := bufio.NewReader(conn)
+		input, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+		// separate the name and mode
+		input = strings.TrimSpace(input)
+		playerName = strings.Split(input, " ")[0]
+		mode = strings.Split(input, " ")[1]
+
+		playerExists := false
+		for _, p := range participants {
+			if p.player.Name == playerName {
+				publishMsgOne(conn, "Player already exists. Please choose another name.\n#")
+				playerExists = true
+				break
+			}
+		}
+
+		if !playerExists {
+			break
+		}
+	}
 	// mode = 1 for battle mode
 	// mode = 2 for catch mode
 	if mode == "1" {
 		playerName = strings.TrimSpace(playerName)
-		if err != nil {
-			return
-		}
+
 		fmt.Println(playerName)
+
 		player, found := findPlayer(playerName)
 		if !found {
-			publishMsgOne(conn, "Player does not exist. Created a new player.\n#")
+			publishMsgOne(conn, "Player does not exist. Created a new player.\n")
 			player = createPlayer(pokedex, playerName)
 		}
 		// request the player to choose a Pokemon
@@ -543,7 +583,7 @@ func onMessage(conn net.Conn, pokedex []Pokemon) {
 		for i := range player.PokemonList {
 			player.PokemonList[i].Deployable = true
 		}
-		msg := listPokemon(player.PokemonList)
+		msg := getListOfPokemon(player.PokemonList)
 
 		chosenPokemon, _ := readPokemonFromClient(conn, msg[:len(msg)-1]+"Choose a pokemon: #", player.PokemonList)
 
@@ -561,14 +601,13 @@ func onMessage(conn net.Conn, pokedex []Pokemon) {
 		fmt.Println("The number of connected participants: ", len(participants))
 
 	} else if mode == "2" {
-
 		// create a new player
 		playerName = strings.TrimSpace(playerName)
-		if err != nil {
-			return
-		}
+		// random position
+		xRan := rand.Intn(worldSize)
+		yRan := rand.Intn(worldSize)
 		fmt.Println(playerName)
-		player := world.addPlayer(playerName, 0, 0)
+		player := world.addPlayer(playerName, xRan, yRan)
 		// Add the player to the list of participants
 		mu.Lock()
 		participants = append(participants, Participant{
@@ -639,19 +678,27 @@ func findPlayer(name string) (*Player, bool) {
 	decoder := json.NewDecoder(file)
 	players := []Player{}
 	_ = decoder.Decode(&players)
+	// Find the player in the list with the given name and has the most of length of pokemonlist
+	maxLen := 0
+	var maxPlayer *Player
 	for _, p := range players {
-		if strings.EqualFold(p.Name, name) {
-			return &p, true
+		if strings.EqualFold(p.Name, name) && len(p.PokemonList) > maxLen {
+			maxLen = len(p.PokemonList)
+			maxPlayer = &p
 		}
+	}
+	if maxPlayer != nil {
+		return maxPlayer, true
 	}
 	return &Player{}, false
 }
 func calculateDamage(attacker, defender *Pokemon, attackType string) int {
-	if attackType == "normal" {
+	if attackType == "😌normal" {
 		return max(attacker.Attack-defender.Defense, 0)
 	}
-	if attackType == "special" {
+	if attackType == "💥special" {
 		elementalMultiplier := 1.75
+
 		return max(int(float64(attacker.SpAttack)*elementalMultiplier)-defender.SpDefense, 0)
 	}
 	return 0
@@ -675,15 +722,15 @@ func handlePlayerMovement(conn net.Conn, world *World, playerName string) {
 			}
 			input = strings.TrimSpace(input)
 			switch input {
-			case string(keyboard.KeyArrowUp):
+			case string(rune(keyboard.KeyArrowUp)):
 				world.movePlayer(playerName, -1, 0)
-			case string(keyboard.KeyArrowDown):
+			case string(rune(keyboard.KeyArrowDown)):
 				world.movePlayer(playerName, 1, 0)
-			case string(keyboard.KeyArrowLeft):
+			case string(rune(keyboard.KeyArrowLeft)):
 				world.movePlayer(playerName, 0, -1)
-			case string(keyboard.KeyArrowRight):
+			case string(rune(keyboard.KeyArrowRight)):
 				world.movePlayer(playerName, 0, 1)
-			case string(keyboard.KeyEsc):
+			case string(rune(keyboard.KeyEsc)):
 				endCh <- "ended"
 				for _, p := range participants {
 					if p.player.Name == playerName {
@@ -692,7 +739,9 @@ func handlePlayerMovement(conn net.Conn, world *World, playerName string) {
 				}
 				return
 			}
-			world.display()
+			for _, p := range listOfCatchMode(participants) {
+				msgChOne <- Message{msg: world.display(), conn: p.conn}
+			}
 		}
 	}()
 
@@ -705,13 +754,15 @@ func battle(participant1, participant2 *Participant) (*Participant, *Participant
 
 		// Start the battle
 		winner, loser := battleRound(participant1, participant2)
-		msg := fmt.Sprintf("\n%s wins the round - %s lost", winner.player.Name, loser.player.Name)
+		fmt.Println("winner", winner.player.Name)
+		fmt.Println("loser", loser.player.Name)
+		msg := fmt.Sprintf("\n👉 %s wins the round - %s lost. Let's %s choose another pokemon!\n", winner.player.Name, loser.player.Name, loser.player.Name)
+		messages = append(messages, msg)
+		// msgCh <- msg + "#"
+		if loser.turn <= 0 {
 
-		msgCh <- msg + "#"
-		if loser.turn == 0 {
-			msg := fmt.Sprintf("\nBATTLE END!!! \n%s has no turns left. %s wins!", loser.player.Name, winner.player.Name)
-
-			msgCh <- msg + "#"
+			// msgCh <- msg + "#"
+			messages = append(messages, fmt.Sprintf("\nBATTLE END!!! \n%s has no turns left. %s wins!", loser.player.Name, winner.player.Name))
 			totalExp := 0
 			for _, pokemon := range loser.player.PokemonList {
 				totalExp += pokemon.Exp
@@ -722,13 +773,23 @@ func battle(participant1, participant2 *Participant) (*Participant, *Participant
 			for i := range winner.player.PokemonList {
 				winner.player.PokemonList[i].AccumExp += expPerPokemon
 			}
+			for _, p := range listOfBattleMode(participants) {
+				msgChOne <- Message{msg: strings.Join(messages, "") + "#", conn: p.conn}
+			}
+			messages = []string{}
 			return winner, loser
 
 		}
 		// Ask the losing participant to choose another Pokemon
-		pokemonList := listPokemon(loser.player.PokemonList)
+		pokemonList := getListOfPokemon(loser.player.PokemonList)[:len(getListOfPokemon(loser.player.PokemonList))-1]
+		for _, p := range listOfBattleMode(participants) {
 
-		loser.curPokemon, surrendered = readPokemonFromClient(loser.conn, "\nYou lost the round, Let's choose another Pokemon\n"+pokemonList+"Your choice: ", loser.player.PokemonList)
+			msgChOne <- Message{msg: strings.Join(messages, "") + "#", conn: p.conn}
+
+		}
+
+		messages = []string{}
+		loser.curPokemon, surrendered = readPokemonFromClient(loser.conn, "\nYou lost the round, Let's choose another Pokemon\n"+pokemonList+"PRESS -1 to surrender - Your choice: #", loser.player.PokemonList)
 		if surrendered {
 			totalExp := 0
 			for _, pokemon := range loser.player.PokemonList {
@@ -745,7 +806,7 @@ func battle(participant1, participant2 *Participant) (*Participant, *Participant
 	}
 }
 func battleRound(participant1, participant2 *Participant) (*Participant, *Participant) {
-	var messages []string
+
 	// Announce the current Pokemon
 	msg := fmt.Sprintf("---%s chose %s\n%s chose %s\n", participant1.player.Name, participant1.curPokemon.Name, participant2.player.Name, participant2.curPokemon.Name)
 
@@ -770,19 +831,25 @@ func battleRound(participant1, participant2 *Participant) (*Participant, *Partic
 			defender = participant1
 		}
 	}
-	for participant1.curPokemon.HP > 0 && participant2.curPokemon.HP > 0 {
+	fmt.Println("attacker: ", attacker.curPokemon.Name)
+	fmt.Println("defender: ", defender.curPokemon.Name)
+	messages = append(messages, fmt.Sprintf("🥾 %s will attack first.\n", attacker.player.Name))
+	for attacker.curPokemon.HP > 0 && defender.curPokemon.HP > 0 {
 
 		// Player's turn to choose attack type
-		attackTypes := []string{"normal", "special"}
+		attackTypes := []string{"😌normal", "💥special"}
 		attackType := attackTypes[rand.Intn(len(attackTypes))]
 
 		// Calculate and apply damage
 		dmg := calculateDamage(&attacker.curPokemon, &defender.curPokemon, attackType)
 		defender.curPokemon.HP -= dmg
+		fmt.Printf("%s attacked %s with %s attack dealing %d damage.\n", attacker.curPokemon.Name, defender.curPokemon.Name, attackType, dmg)
 		msg := fmt.Sprintf("%s attacked %s with %s attack dealing %d damage.\n", attacker.curPokemon.Name, defender.curPokemon.Name, attackType, dmg)
+
 		messages = append(messages, msg)
 		if defender.curPokemon.HP <= 0 {
-			msg := fmt.Sprintf("%s fainted.\n", defender.curPokemon.Name)
+			fmt.Printf("➜ %s fainted.\n", defender.curPokemon.Name)
+			msg := fmt.Sprintf("➜ %s fainted.\n", defender.curPokemon.Name)
 			defender.turn--
 			for i := range defender.player.PokemonList {
 				if defender.player.PokemonList[i].Name == defender.curPokemon.Name {
@@ -793,7 +860,12 @@ func battleRound(participant1, participant2 *Participant) (*Participant, *Partic
 				} else {
 					// update hp winner
 
-					attacker.player.PokemonList[i].HP = attacker.curPokemon.HP
+					for j := range attacker.player.PokemonList {
+						if attacker.player.PokemonList[j].Name == attacker.curPokemon.Name {
+							attacker.player.PokemonList[j].HP = attacker.curPokemon.HP
+						}
+					}
+
 				}
 			}
 
@@ -802,20 +874,24 @@ func battleRound(participant1, participant2 *Participant) (*Participant, *Partic
 			messages = append(messages, msg)
 			break
 		}
-
 		// Swap attacker and defender for the next round
 		attacker, defender = defender, attacker
+
 	}
-	msg = fmt.Sprintf("%s has %d HP left.\n", attacker.curPokemon.Name, attacker.curPokemon.HP)
+	fmt.Printf("➜ %s has %d HP left.\n", defender.curPokemon.Name, defender.curPokemon.HP)
+	fmt.Printf("➜ %s still has %d HP left.\n", attacker.curPokemon.Name, attacker.curPokemon.HP)
+	msg = fmt.Sprintf("➜ %s still has %d HP left.\n", attacker.curPokemon.Name, attacker.curPokemon.HP)
 	messages = append(messages, msg)
 	// announce the turns
-	msg = fmt.Sprintf("%s has %d turns left.\n", participant1.player.Name, participant1.turn)
+	fmt.Printf("➪ %s has %d turns left.\n", participant1.player.Name, participant1.turn)
+	msg = fmt.Sprintf("➪ %s has %d turns left.\n", participant1.player.Name, participant1.turn)
 	messages = append(messages, msg)
-	msg = fmt.Sprintf("%s has %d turns left.\n", participant2.player.Name, participant2.turn)
+	fmt.Printf("➪ %s has %d turns left.\n", participant2.player.Name, participant2.turn)
+	msg = fmt.Sprintf("➪ %s has %d turns left.\n", participant2.player.Name, participant2.turn)
 	messages = append(messages, msg)
 	messages = append(messages, "------END BATTLE REPORT-----")
 
-	msgCh <- strings.Join(messages, "") + "#"
+	// msgCh <- strings.Join(messages, "") + "#"
 
 	return winner, loser
 }
@@ -823,7 +899,6 @@ func readPokemonFromClient(conn net.Conn, msg string, pokemonList []*Pokemon) (P
 	// conn.Write([]byte(msg))
 	var chosenPokemon Pokemon
 	msgChOne <- Message{msg: msg, conn: conn}
-
 	for {
 		reader := bufio.NewReader(conn)
 		pokemonIndex, err := reader.ReadString('\n')
@@ -852,7 +927,7 @@ func readPokemonFromClient(conn net.Conn, msg string, pokemonList []*Pokemon) (P
 	}
 
 }
-func listPokemon(pokemonList []*Pokemon) string {
+func getListOfPokemon(pokemonList []*Pokemon) string {
 	var listOfPokemon []string
 	for i, p := range pokemonList {
 		listOfPokemon = append(listOfPokemon, fmt.Sprintf("%d. %s\n", i+1, p.Name))
